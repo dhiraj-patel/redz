@@ -1,0 +1,4 @@
+Team Redz Devlog
+
+reoK -- 2016-12-03 3:14
+Created devlog.txt; first comment!

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <title>Find an Event</title>
 <body>
     <center><h2>Find Your Next Experience</h2></center>
@@ -14,8 +15,21 @@
       <center><input type= "text" name = "Zip Code" placeholder = "Zipcode" required></center>
       <br>
       <center>Time: <input type = "time" name = "Time" required></center>
-
-
+      <br>
+      <center>Date: <input type = "date" name = "Date" required></center>
+      <br>
+      <div>
+      <center>Budget: <input type = "range" name = "Budget" min = "0" max = "10000" value = "0" step = "10" onchange="showValue(this.value)" /></center>
+      <span id="range">0</span>
+      <script type="text/javascript">
+	function showValue(newValue)
+	{
+	    document.getElementById("range").innerHTML=newValue; 
+	}
+      </script> 
+ 
+     <center>How Many Miles Are You Willing To Travel? <input type = "text" placeholder = "Enter # From 0-100" name = "Radius"/></center>
+          
     </form>
     <br>
            

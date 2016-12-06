@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1><center>Login or Register</center></h1>
+
+	<center> {{ messageLogin }} </center> <br><br>
+<form action="/authenticate" method="POST">
+  <center>
+  	Username: <input type="text" name="username">
+  	<br><br>
+  	Password:  <input type="password" name="password">
+  	<br><br>
+  <input type="submit" name="action" value="Login">
+  <input type="submit" name="action" value="Register">
+  </center>
+</form>
+<p><center>If you click a button, something may happen.</center></p>
+
+</body>
+</html>

@@ -6,3 +6,6 @@ Created devlog.txt; first comment!
 reoK -- 2016-12-05 22:10
 Added the basic files needed for a flask site with a login/registering portal
 Created the 'users' table within data.db for later use
+
+reok -- 2016-12-06 00:34
+Added placesAPI.py

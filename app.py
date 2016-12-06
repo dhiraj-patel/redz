@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-from utils import auth
+from utils import auth, placesAPI
 
 app = Flask(__name__)
 app.secret_key = 'nine'
@@ -15,6 +15,7 @@ def login():
 def home():
     if 'user' in session:
         mHome = "Welcome back " + session['user'] + "!"
+        placesData = placesAPI.getInfo()
         return render_template('home.html', messageHome = mHome)
     else:
         return redirect(url_for('login'))

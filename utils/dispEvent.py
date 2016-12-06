@@ -6,10 +6,15 @@ import urllib2, json
 
 #@app.route("/")
 def root():
-    u = urllib2.urlopen("https://www.eventbriteapi.com/v3/events/search/?token=COVN2QEFIDLBA54TVAVS")
+    q = "https://www.eventbriteapi.com/v3/events/search/?token=COVN2QEFIDLBA54TVAVS"
+    q+="&location.address=11215"
+    u = urllib2.urlopen(q)
     response = u.read()
     data = json.loads( response )
-    print data
+    events = data["events"]
+    for event in events:
+        print event
+        print "That was an event\n\n\n\n"
 
 if __name__ == "__main__":
     root()

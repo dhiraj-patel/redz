@@ -3,6 +3,10 @@ Team Redz Devlog
 reoK -- 2016-12-03 3:14
 Created devlog.txt; first comment!
 
+Ely Sandine 12-05-2016 00:15:
+finalized design document and added schedule
+fixed dhiraj's bad site maps
+
 reoK -- 2016-12-05 22:10
 Added the basic files needed for a flask site with a login/registering portal
 Created the 'users' table within data.db for later use
@@ -10,5 +14,13 @@ Created the 'users' table within data.db for later use
 reok -- 2016-12-06 00:34
 Added placesAPI.py
 
+Ely Sandine 12/6/2016 20:25:
+Features added:
+-searchEvents: searches events based on criteria
+-nextEvent: uses list of events to find the next event and return it
+-nextEvent: uses event to return data about the event
+-searchEvent can only search by zip code, not direct address
+
 ziyan -- 2016-12-07 1:23
 Refurbished basic login page using bootstrap (commited)
+

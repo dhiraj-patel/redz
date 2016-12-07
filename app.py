@@ -49,9 +49,9 @@ def displayEvents():
     zip = request.form["Zip Code"]
     range = request.form["Budget"]
     date = request.form["Date"]
-    events = searchEvents((zip, range, year, month, day, hour, minute)
-    d = displayEvent(nextEvent(events))
-
+    events = searchEvents((zip, range, year, month, day, hour, minute))
+   # d = displayEvent(nextEvent(events))
+    return redirect(url_for('login'))
 if __name__ == "__main__":
     app.debug = True
     app.run()

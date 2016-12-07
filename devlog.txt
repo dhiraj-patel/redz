@@ -9,3 +9,6 @@ Created the 'users' table within data.db for later use
 
 reok -- 2016-12-06 00:34
 Added placesAPI.py
+
+ziyan -- 2016-12-07 1:23
+Refurbished basic login page using bootstrap (commited)

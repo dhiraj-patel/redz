@@ -20,3 +20,13 @@ Bugs created:
 -searchEvent can only search bby zip code, not direct address
 What to do next:
 -incorporate this backend into app.py/listEvents.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ely Sandine 12/5/2016 00:15:
+Features added:
+-finalized design document and added schedule
+Bugs fixed:
+-dhiraj's bad site maps
+Bugs created:
+-none hopefully
+What to do next:
+-project

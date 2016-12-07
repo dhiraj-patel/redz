@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-from utils import auth, placesAPI
+from utils import auth, dispEvent#placesAPI
 
 app = Flask(__name__)
 app.secret_key = 'nine'
@@ -39,9 +39,9 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/findEvents', methods=['GET'])
+@app.route('/findEvents')
 def find():
-    return redirect(url_for('listEvent'))
+    return render_template('newEvent.html')
         
 
 @app.route('/listEvent',methods = ['POST'])

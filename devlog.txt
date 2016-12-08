@@ -18,7 +18,7 @@ Ely Sandine 12/6/2016 20:25:
 Features added:
 -searchEvents: searches events based on criteria
 -nextEvent: uses list of events to find the next event and return it
--nextEvent: uses event to return data about the event
+-dispEventResults: uses event to return data about the event
 -searchEvent can only search by zip code, not direct address
 
 ziyan -- 2016-12-07 1:23
@@ -27,3 +27,9 @@ Refurbished basic login page using bootstrap
 ziyan - 2016-12-07 9:37
 Finished the basic summary page that I started in class. (Could still change depending on the format the variables are passed to the webpage. Also going to have to figure out how to center the text vertically)
 
+Ely Sandine 12-08-2016 18:41:
+Features added:
+-searchFoods: searches foods based on criteria
+-nextFood: uses list of foods to find the next food and return it
+-dispEventResults: uses food to return data about the food
+-searchFoods can only search budget wise on a 0-4 scale

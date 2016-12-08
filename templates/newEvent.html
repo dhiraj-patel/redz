@@ -4,6 +4,8 @@
 <title>Find an Event</title>
 <body>
     <center><h2>Find Your Next Experience</h2></center>
+    <center><h5 style="color:red">{{ errorMessage }}</h5></center>
+    <br><br>
     <center><h4>Enter your Address For An Awesome Time</h4><center>
     <form action="/viewEvent" method="post" id="form1">
       <center><input type= "text" name = "Zip Code" placeholder = "Zipcode" required></center>

@@ -65,8 +65,14 @@ def outputResults():
 
     else: 
         events = dispEvent.searchEvents(formzip,distance,year,month,day,hour,minute)
-        d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
-        return render_template('listEvent.html', eventpar = d)
+        i = 0
+        allEvents = []
+        while i<10: 
+            d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
+            allEvents.append(d)
+            i+=1
+            
+        return render_template('listEvent.html', eventpar = allEvents)
     
 
 if __name__ == "__main__":

@@ -7,13 +7,14 @@
   <body>
     <h2><center>Events Found</center></h2>
     <ul>
-        <li>{{eventpar['name']}}</li>
-        <li>{{eventpar['description']}}</li>
-        <li>{{eventpar['time']}}</li>
-        <li>{{eventpar['place']}}</li>
-        <li>{{eventpar['address']}}</li>
-        <li><img src={{eventpar['logo']}} alt = "Logo"></li>
-        <li><a href={{eventpar['url']}}>Visit Event!</a></li>
+      {% for item in eventpar %}
+        <li>{{item['name']}}</li>
+        <li>{{item['description']}}</li>
+        <li>{{item['time']}}</li>
+        <li>{{item['place']}}</li>
+        <li>{{item['address']}}</li>
+        <li><img src={{item['logo']}} alt = "Logo"></li>
+        <li><a href={{item['url']}}>Visit Event!</a></li>
     </ul></center></p>
 </body>
 </html>

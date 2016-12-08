@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="a.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <body>
+  <body background="http://luxesocietyasia.com/wp-content/uploads/2014/09/KuDeTa-Fourth-Anniversary-Party-Scene.jpeg">
   <div class="container-fluid">
-      <div class="row">  
-         <div class="col-md-6"> <h1>{{name}}</h1></div>
-         <div class="col-md-6"> <h1> "Time: " + {{time}}</h1></div>
-      </div>
+        <div ID = "top">
+             <h1>{{name}}</h1>
+        </div>
       <div class="row">
          <div class="col-md-4"> <h3> "Location: "{{location}}</h3></div> 
+         <div class="col-md-4"> <h3> "Time: " + {{time}}</h3></div>
          <div class="col-md-4"> <h3> "Price: "{{price}}</h3></div>
-         <div class="col-md-4"> <a class="btn btn-primary btn-lg" href={{url}} role ="button">More Info</a>
-      </div> 
-      <div class="jumbotron" style="background-color: 
-           <h3>{{summary}}</h3>
+      </div>
+           <a class="btn btn-primary btn-lg" href={{url}} role ="button">More Info</a>
+      <div class="jumbotron" style="background-color: #FF336B">
+           <div ID = "sum">
+               <h3>"  " + {{summary}}</h3>
+           </div>
+      </div>
   </div>
   </body>
 </html>

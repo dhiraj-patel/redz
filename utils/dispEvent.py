@@ -24,7 +24,7 @@ def searchEvents(zip, range, year, month, day, hour, minute):
         i+=1
     return ret
 
-#seachEvents(zip, range, year, month, day, hour, minute)
+#nextEvent(events,budget)
 #Params:
 # events - list of events
 # budget - int budget in dollars

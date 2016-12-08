@@ -22,5 +22,8 @@ Features added:
 -searchEvent can only search by zip code, not direct address
 
 ziyan -- 2016-12-07 1:23
-Refurbished basic login page using bootstrap (commited)
+Refurbished basic login page using bootstrap
+
+ziyan - 2016-12-07 9:37
+Finished the basic summary page that I started in class. (Could still change depending on the format the variables are passed to the webpage. Also going to have to figure out how to center the text vertically)
 

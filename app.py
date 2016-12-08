@@ -44,12 +44,24 @@ def find():
     return render_template('newEvent.html')
         
 
-@app.route('/viewEvent', methods=["GET"])
+@app.route('/viewEvent', methods=["POST"])
 def outputResults():
-    #zip = request.form["Zip Code"]
-    #range = request.form["Budget"]
-    events = dispEvent.searchEvents(10282,10, 2016, 12, 15, 12, 30)
-    d=dispEvent.dispEventResults(dispEvent.nextEvent(events,100))
+    formzip = request.form["Zip Code"]
+    budgetrange = request.form["Budget"]
+    distance = request.form["Radius"]
+    time = request.form["Time"]
+    date = request.form["Date"]
+
+    timex = time.split(':')
+    datex = date.split('-')
+
+    year = int(datex[0])
+    month = int(datex[1])
+    day = int(datex[2])
+    hour = int(timex[0])
+    minute = int(timex[1])
+    events = dispEvent.searchEvents(formzip,distance,year,month,day,hour,minute)
+    d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
     return render_template('listEvent.html', eventpar = d)
     
 

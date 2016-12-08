@@ -52,7 +52,7 @@ def nextEvent(events,budget):
 # event - event url
 #Returns: dictionary with all of the data for the event
 #What it does: grabs data from api
-def dispEvent(event):
+def dispEventResults(event):
     u = urllib2.urlopen(event+"&expand=venue,logo_id")
     response = u.read()
     data = json.loads( response )
@@ -69,5 +69,5 @@ def dispEvent(event):
 
 if __name__ == "__main__":
     events = searchEvents(11215, 20, 2016, 12, 15, 12, 30)
-    print dispEvent(nextEvent(events, 100))
+    print dispEventResults(nextEvent(events, 100))
                           

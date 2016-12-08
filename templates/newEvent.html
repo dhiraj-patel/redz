@@ -5,7 +5,7 @@
 <body>
     <center><h2>Find Your Next Experience</h2></center>
     <center><h4>Enter your Address For An Awesome Time</h4><center>
-    <form action="/listEvent/" method = "POST">
+    <form action="/viewEvent" id="form1">
       <center><input type = "text" name = "Street Address" placeholder = "Address" required></center>
       <br>
       <center><input type = "text" name = "City" placeholder = "City" required></center>
@@ -18,7 +18,7 @@
       <br>
       <center>Date: <input type = "date" name = "Date" required></center>
       <br>
-      <div>
+        
       <center>Budget: <input type = "range" name = "Budget" min = "0" max = "10000" value = "0" step = "10" onchange="showValue(this.value)" /></center>
       <span id="range">0</span>
       <script type="text/javascript">
@@ -30,7 +30,7 @@
  
      <center>How Many Miles Are You Willing To Travel? <input type = "text" placeholder = "Enter # From 0-100" name = "Radius"/></center>
           
-     <button type="submit" name="findeventbutton">Submit!</button>
+     <button type="submit" form ="form1" name="findeventbutton">Submit!</button>
     </form>
     <br>
            

@@ -60,9 +60,13 @@ def outputResults():
     day = int(datex[2])
     hour = int(timex[0])
     minute = int(timex[1])
-    events = dispEvent.searchEvents(formzip,distance,year,month,day,hour,minute)
-    d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
-    return render_template('listEvent.html', eventpar = d)
+    if year < 2015:
+        return render_template('newEvent.html',errorMessage="Bad Request For Year")
+
+    else: 
+        events = dispEvent.searchEvents(formzip,distance,year,month,day,hour,minute)
+        d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
+        return render_template('listEvent.html', eventpar = d)
     
 
 if __name__ == "__main__":

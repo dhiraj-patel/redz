@@ -30,10 +30,27 @@ def nextFood(foods):
     food = foods["results"][0];
     q = "https://maps.googleapis.com/maps/api/place/details/json?"
     q+="key=AIzaSyADc7Kdirb61v6g5LBZdisoLLeG3q_j03g"
-    q+= "&placeid="+str(food["id"])
+    q+= "&placeid="+str(food["place_id"])
     foods["results"].remove(food)
     return q
 
+#dispFoodResults(event)
+#Params:
+# event - event url
+#Returns: dictionary with all of the data for the food
+#What it does: grabs data from api
+def dispFoodResults(food):
+    print food
+    u = urllib2.urlopen(food)
+    response = u.read()
+    data = json.loads( response )
+    d = {}
+    d['name']=data['result']['name']
+    d['address']=data['result']['formatted_address']
+    d['logo']=data['result']['icon']
+    d['url']=data['result']['url']
+    return d
 
-foods=searchFood(40.6653873,-73.9861546,1000,4)
-print nextFood(foods)
+if __name__ == "__main__":
+    foods=searchFood(40.6653873,-73.9861546,1000,4)
+    print dispFoodResults(nextFood(foods))

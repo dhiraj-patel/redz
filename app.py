@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-from utils import auth, dispEvent#placesAPI
+from utils import auth, dispEvent
 
 app = Flask(__name__)
 app.secret_key = 'nine'
@@ -45,8 +45,12 @@ def find():
         
 
 @app.route('/viewEvent', methods=["GET"])
-def displayEvents():
-    return render_template('listEvent.html')
+def outputResults():
+    #zip = request.form["Zip Code"]
+    #range = request.form["Budget"]
+    events = dispEvent.searchEvents(10282,10, 2016, 12, 15, 12, 30)
+    d=dispEvent.dispEventResults(dispEvent.nextEvent(events,100))
+    return render_template('listEvent.html', eventpar = d)
     
 
 if __name__ == "__main__":

@@ -62,6 +62,8 @@ def dispEventResults(event):
     d['time']=data['start']['local']
     d['place']=data['venue']['name']
     d['address']=data['venue']['address']['localized_address_display']
+    d['lat']=data['venue']['latitude']
+    d['long']=data['venue']['longitude']
     d['logo']=data['logo']['url']
     d['url']=data['url']
     return d

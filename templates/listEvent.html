@@ -18,9 +18,15 @@
         <li><img src={{item['logo']}} alt = "Logo"></li>
         <li><a href={{item['url']}}>Visit Event!</a></li>
         <br><br>
-        <button type="submit" formmethod="post" form="form2" name="findFoodButton">Find Restaurants And Eateries Around Location</button>
+        <button type="submit" formmethod="post" form="form2" name="findFoodButton">Find Restaurants And Eateries Around Location
+            <input type="hidden" name="lat" value={{item['lat']}}>
+            <input type="hidden" name="long" value={{item['long']}}>
+        </button>
+        
         <br><br>
        {% endfor %}
-    </ul></center></p>
-</body>
+    </ul>
+      </form>
+    </body>
 </html>
+

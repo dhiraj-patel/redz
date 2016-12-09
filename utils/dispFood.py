@@ -31,7 +31,7 @@ def nextFood(foods):
     q = "https://maps.googleapis.com/maps/api/place/details/json?"
     q+="key=AIzaSyADc7Kdirb61v6g5LBZdisoLLeG3q_j03g"
     q+= "&placeid="+str(food["place_id"])
-    foods["results"].remove(food)
+    foods["results"].pop(0)
     return q
 
 #dispFoodResults(event)

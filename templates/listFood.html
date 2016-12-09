@@ -2,11 +2,21 @@
 <html>
 
   <head>
-    <title>Restuarant's Found</title>
+      <title>Restaurant's Found</title>   
   </head>
   <body>
-    <h2><center>Restaurant's Found</center></h2>
+    <h2><center>Restaurant's and Eateries Near You!</center></h2>
+      <form action="/viewFoods" method="post" id="form2">
     <ul>
-    </ul></center></p>
-</body>
+    {% for item in foodpar %}
+        <h4>Restaurant {{number}}</h4>
+        <li>{{item['name']}}</li>
+        <li>{{item['address']}}</li>
+        <li><img src={{item['logo']}} alt = "Logo"></li>
+        <li><a href={{item['url']}}>More information on This Restaurant!</a></li>
+        <br><br>
+    {% endfor %}
+    </ul>
+      </form>
+    </body>
 </html>

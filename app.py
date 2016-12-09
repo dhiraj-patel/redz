@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-from utils import auth, dispEvent
+from utils import auth, dispEvent, dispFood
 
 app = Flask(__name__)
 app.secret_key = 'nine'
@@ -67,7 +67,7 @@ def outputResults():
         events = dispEvent.searchEvents(formzip,distance,year,month,day,hour,minute)
         i = 0
         allEvents = []
-        while i<3: 
+        while i<5: 
             d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
             allEvents.append(d)
             i+=1
@@ -75,10 +75,21 @@ def outputResults():
     
 @app.route('/viewFoods',methods=["POST"])
 def foodResults():
-    print "KLEENEXTISSUES"
+    formlat = request.form['lat']
+    formlong = request.form['long']
+    formbudget = 4
+    formRadius = 1609 #1 mile in meters
+
+    i = 0
+    allFoods = []
+    while i<5:
+        foodFound = dispFood.searchFood(formlat,formlong,formRadius,formbudget)
+        f = dispFood.dispFoodResults(dispFood.nextFood(foodFound))
+        print f 
+        allFoods.append(f)
+        i+=1
+    return render_template('listFood.html', foodpar = allFoods, number=i)
     
-    
-    return render_template('listFood.html')
 
 if __name__ == "__main__":
     app.debug = True

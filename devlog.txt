@@ -33,3 +33,6 @@ Features added:
 -nextFood: uses list of foods to find the next food and return it
 -dispEventResults: uses food to return data about the food
 -searchFoods can only search budget wise on a 0-4 scale
+
+ziyan -- 2016-12-08 11:08
+Basic home page, nav bar, logout, table for displaying the plans.

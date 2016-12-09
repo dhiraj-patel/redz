@@ -81,10 +81,9 @@ def foodResults():
 
     i = 0
     allFoods = []
-    while i<5:
-        foodFound = dispFood.searchFood(formlat,formlong,formRadius,formbudget)
-        f = dispFood.dispFoodResults(dispFood.nextFood(foodFound))
-        print f 
+    foodFound = dispFood.searchFood(formlat,formlong,formRadius,formbudget)
+    while i<len(foodFound["results"]):
+        f = dispFood.dispFoodResults(dispFood.nextFood(foodFound,i))
         allFoods.append(f)
         i+=1
     return render_template('listFood.html', foodpar = allFoods, number=i)

@@ -15,7 +15,6 @@ def login():
 def home():
     if 'user' in session:
         mHome = "Welcome back " + session['user'] + "!"
-        placesData = placesAPI.getInfo()
         return render_template('home.html', messageHome = mHome)
     else:
         return redirect(url_for('login'))

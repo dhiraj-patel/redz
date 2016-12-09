@@ -51,7 +51,7 @@ def outputResults():
     distance = request.form["Radius"]
     time = request.form["Time"]
     date = request.form["Date"]
-
+    
     timex = time.split(':')
     datex = date.split('-')
 
@@ -67,13 +67,18 @@ def outputResults():
         events = dispEvent.searchEvents(formzip,distance,year,month,day,hour,minute)
         i = 0
         allEvents = []
-        while i<10: 
+        while i<3: 
             d=dispEvent.dispEventResults(dispEvent.nextEvent(events,budgetrange))
             allEvents.append(d)
             i+=1
-            
-        return render_template('listEvent.html', eventpar = allEvents)
+        return render_template('listEvent.html', eventpar = allEvents, number = i)
     
+@app.route('/viewFoods',methods=["POST"])
+def foodResults():
+    print "KLEENEXTISSUES"
+    
+    
+    return render_template('listFood.html')
 
 if __name__ == "__main__":
     app.debug = True

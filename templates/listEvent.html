@@ -6,8 +6,10 @@
   </head>
   <body>
     <h2><center>Events Found</center></h2>
+      <form action="/viewFoods" method="post" id="form2">
     <ul>
       {% for item in eventpar %}
+        <h4>Event {{number}}</h4>
         <li>{{item['name']}}</li>
         <li>{{item['description']}}</li>
         <li>{{item['time']}}</li>
@@ -15,6 +17,10 @@
         <li>{{item['address']}}</li>
         <li><img src={{item['logo']}} alt = "Logo"></li>
         <li><a href={{item['url']}}>Visit Event!</a></li>
+        <br><br>
+        <button type="submit" formmethod="post" form="form2" name="findFoodButton">Find Restaurants And Eateries Around Location</button>
+        <br><br>
+       {% endfor %}
     </ul></center></p>
 </body>
 </html>

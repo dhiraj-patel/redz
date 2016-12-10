@@ -9,8 +9,11 @@ import urllib2, json
 #Returns: list of places
 #What it does: Searches events based on zip code, distance from house, and date
 def searchFood(lat, long, rad, maxprice):
+    instream = open('keys.csv', 'r') 
+    content = instream.readlines() 
+    instream.close()
     q = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
-    q+="key=AIzaSyADc7Kdirb61v6g5LBZdisoLLeG3q_j03g"
+    q+="key="+content[1]
     q+="&location="+str(lat)+","+str(long)
     #q+="&radius="+str(rad)
     q+="&maxprice="+str(maxprice)
@@ -28,9 +31,12 @@ def searchFood(lat, long, rad, maxprice):
 #What it does: removes the first event from the list and checks the price, if
 #it is below the cost it returns the event, if not it recursively calls itself
 def nextFood(foods, i):
+    instream = open('keys.csv', 'r') 
+    content = instream.readlines() 
+    instream.close()
     food = foods["results"][i];
     q = "https://maps.googleapis.com/maps/api/place/details/json?"
-    q+="key=AIzaSyADc7Kdirb61v6g5LBZdisoLLeG3q_j03g"
+    q+="key="+content[1]
     q+= "&placeid="+str(food["place_id"])
     return q
 

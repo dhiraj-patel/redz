@@ -8,7 +8,11 @@ import urllib2, json
 #Returns: list of api urls to events sorted by date
 #What it does: Searches events based on zip code, distance from house, and date
 def searchEvents(zip, range, year, month, day, hour, minute):
-    q = "https://www.eventbriteapi.com/v3/events/search/?token=COVN2QEFIDLBA54TVAVS"
+    instream = open('keys.csv', 'r') 
+    content = instream.readlines() 
+    instream.close()
+    q = "https://www.eventbriteapi.com/v3/events/search/?token="
+    q+=content[0][:-1]
     q+="&sort_by=date"
     q+="&location.address="+str(zip)
     q+="&location.within="+str(range)+"mi"
@@ -32,9 +36,12 @@ def searchEvents(zip, range, year, month, day, hour, minute):
 #What it does: removes the first event from the list and checks the price, if
 #it is below the cost it returns the event, if not it recursively calls itself
 def nextEvent(events,budget):
+    instream = open('keys.csv', 'r') 
+    content = instream.readlines() 
+    instream.close()
     q = events[0]
     events.remove(q)
-    q+="?token=COVN2QEFIDLBA54TVAVS"
+    q+="?token="+content[0][:-1]
     q+="&expand=ticket_classes"
     u = urllib2.urlopen(q)
     response = u.read()

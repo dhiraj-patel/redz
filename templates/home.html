@@ -14,10 +14,12 @@
 	  <ul class="nav navbar-nav">
 	      <li class="active"><a href="/home">Home</a></li>
               <li><a href="/findEvents">Find Events!</a></li>
-          </ul>
-          <form class="form-inline float-xs-right" action = "/logout" method = "POST">
-		 <button class="btn btn-default navbar-right" input type = "submit" name = "action">Logout</button>
-          </form>
+	  </ul>
+	  <ul class="nav navbar-nav navbar-right">
+	      <form action = "/logout" method = "POST">
+		 <li><button class="btn btn-default btn-lg" type = "submit" name="action">Logout</button></li>
+              </form>
+	  </ul>
           </nav>
                     <div class="row">
                             <div class="col-md-3"> <h3>Event</h3></div> 

@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
 <link rel="shortcut icon" href="../static/icon.ico" />
+<link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css" >
+</head>
+    
+    
+    
 <title>Find an Event</title>
-<body>
+<body><div class="jumbotron">
     <center><h2>Find Your Next Experience</h2></center>
     <center><h5 style="color:red">{{ errorMessage }}</h5></center>
     <br><br>
-    <center><h4>Enter your Address For An Awesome Time</h4><center>
+    <center><h4>Enter your Address For An Awesome Time</h4></center>
+    <center>
     <form action="/viewEvent" method="post" id="form1">
       <center><input type= "text" name = "Zip Code" placeholder = "Zipcode" required></center>
       <br>
@@ -15,7 +22,7 @@
       <center>Date: <input type = "date" name = "Date" required></center>
       <br>
         
-      <center>Budget: <input type = "range" name = "Budget" min = "0" max = "500" value = "0" step = "10" onchange="showValue(this.value)" /></center>
+      <center>Budget: <input type = "range" style="width:500px" name = "Budget" min = "0" max = "500" value = "0" step = "10" onchange="showValue(this.value)" /></center>
       <span id="range">0</span>
       <script type="text/javascript">
 	function showValue(newValue)
@@ -26,10 +33,8 @@
  
      <center>How Many Miles Are You Willing To Travel? <input type = "text" placeholder = "Enter # From 0-100" name = "Radius"/></center>
           
-     <button type="submit" form ="form1" name="findeventbutton">Submit!</button>
+     <button class="btn btn-success btn-lg"  type="submit" form ="form1" name="findeventbutton">Submit!</button>
     </form>
-    <br>
-           
-  </body>
-
-</html>
+    </center>
+    </div>
+<br></body></html>

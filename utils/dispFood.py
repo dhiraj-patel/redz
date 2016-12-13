@@ -72,6 +72,12 @@ def dispFoodResults(food):
     #d['logo']=getPhoto(photo_reference)
     d['logo']=data['result']['icon']
     d['url']=data['result']['url']
+    if 'opening_hours' in data['result'].keys():
+        d['time']=data['result']['opening_hours']['weekday_text']
+        print data['result']['opening_hours']['weekday_text']
+    else:
+        d['time']=[]
+    d['price']=data['result']['price_level']
     return d
 
 if __name__ == "__main__":
@@ -79,6 +85,5 @@ if __name__ == "__main__":
     print foods
     i=0
     while i < len(foods['results']):
-        print i
         print dispFoodResults(nextFood(foods, i))
         i+=1

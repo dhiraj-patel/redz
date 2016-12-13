@@ -15,9 +15,9 @@ def searchFood(lat, long, rad, maxprice):
     q = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?"
     q+="key="+content[1]
     q+="&location="+str(lat)+","+str(long)
-    #q+="&radius="+str(rad)
+    q+="&radius=2000"
     q+="&maxprice="+str(maxprice)
-    q+="&rankby=distance"
+    #q+="&rankby=distance"
     q+="&type=restruant,food"
     u = urllib2.urlopen(q)
     response = u.read()
@@ -40,6 +40,22 @@ def nextFood(foods, i):
     q+= "&placeid="+str(food["place_id"])
     return q
 
+#getPhoto(photo_reference)
+#Params:
+# photo_reference - photo_refenence to use in api request
+#Returns: image
+#What it does: Uses photo_reference to get image off of google places
+def getPhoto(photo_reference):
+    instream = open('keys.csv', 'r') 
+    content = instream.readlines() 
+    instream.close()
+    q = "https://maps.googleapis.com/maps/api/place/photo?"
+    q+="key="+content[1]
+    q+="&photoreference="+photo_reference
+    q+="&maxwidth=400"
+    u = urllib2.urlopen(q)
+    response = u.read()
+    return response
 #dispFoodResults(event)
 #Params:
 # event - event url
@@ -52,6 +68,8 @@ def dispFoodResults(food):
     d = {}
     d['name']=data['result']['name']
     d['address']=data['result']['formatted_address']
+    #photo_reference =  data['result']['photos'][0]['photo_reference']
+    #d['logo']=getPhoto(photo_reference)
     d['logo']=data['result']['icon']
     d['url']=data['result']['url']
     return d

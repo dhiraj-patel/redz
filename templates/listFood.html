@@ -6,18 +6,35 @@
 </head>
 <title>Restaurant's Found</title>   
   <body>
-    <h2><center>Restaurant's and Eateries Near You!</center></h2>
-      <form action="/viewFoods" method="post" id="form2">
-    <ul>
+    <h2><center>Restaurants and Eateries Near You!</center></h2>
     {% for item in foodpar %}
-        <h4>Restaurant {{number}}</h4>
-        <li>{{item['name']}}</li>
-        <li>{{item['address']}}</li>
-        <li><img src={{item['logo']}} alt = "Logo"></li>
-        <li><a href={{item['url']}}>More information on This Restaurant!</a></li>
-        <br><br>
-    {% endfor %}
+    <form action="/summary" method="POST">
+    <ul>
+        <h4>Eatery found!</h4>
+        <li>{{ item['name'] }}</li>
+        <li>{{ item['address'] }}</li>
+        <li><img src= "{{ item['logo'] }}" alt = "Logo"></li>
+        <li><a href= "{{ item['url'] }}">Click for further information!</a></li>
+        <button type = "submit" value = "action"> Create Plan
+            <input type = "hidden" name = "eName" value = "{{ eventData[0] }}">
+            <input type = "hidden" name = "eDesc" value = "{{ eventData[1] }}">
+            <input type = "hidden" name = "eTime" value = "{{ eventData[2] }}">
+            <input type = "hidden" name = "eVenue" value = "{{ eventData[3] }}">
+            <input type = "hidden" name = "eAddress" value = "{{ eventData[4] }}">
+            <input type = "hidden" name = "fName" value = "{{ item['name'] }}">
+            <input type = "hidden" name = "fAddress" value = "{{ item['address'] }}">
+        </button>
     </ul>
-      </form>
+    </form>
+    <br><br>
+    {% endfor %}
+    <h3> info for selected event (test) </h3>
+    <ul>
+        <li> {{ eventData[0] }} </li> 
+        <li> {{ eventData[1] }} </li>
+        <li> {{ eventData[2] }} </li>
+        <li> {{ eventData[3] }} </li>
+        <li> {{ eventData[4] }} </li> 
+    </ul>
     </body>
 </html>

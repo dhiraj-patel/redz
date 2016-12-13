@@ -5,22 +5,34 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <body background="http://luxesocietyasia.com/wp-content/uploads/2014/09/KuDeTa-Fourth-Anniversary-Party-Scene.jpeg">
-  <div class="container-fluid">
+  <!-- body background="https://pbs.twimg.com/profile_images/2662011849/afea7f1189ef655f85dadde4b2024e82.jpeg" -->
+  <!-- div class="container-fluid">
         <div ID = "top">
-             <h1>{{name}}</h1>
+             <h1>Your Plan Summary</h1>
         </div>
       <div class="row">
-         <div class="col-md-4"> <h3> "Location: "{{location}}</h3></div> 
-         <div class="col-md-4"> <h3> "Time: " + {{time}}</h3></div>
-         <div class="col-md-4"> <h3> "Price: "{{price}}</h3></div>
+         <div class="col-md-4"> <h3> "Event Name: " + {{ planData[0] }}</h3></div> 
+         <div class="col-md-4"> <h3> "Event Description: " + {{ planData[1] }}</h3></div>
+         <div class="col-md-4"> <h3> "Event Time: " + {{ planData[2] }}</h3></div>
       </div>
            <a class="btn btn-primary btn-lg" href={{url}} role ="button">More Info</a>
       <div class="jumbotron" style="background-color: #FF336B">
            <div ID = "sum">
-               <h3>"  " + {{summary}}</h3>
+               <h3>"hoohah"</h3>
            </div>
       </div>
-  </div>
+  </div -->
+  <!-- body background="https://pbs.twimg.com/profile_images/2662011849/afea7f1189ef655f85dadde4b2024e82.jpeg" -->
+  <body>
+  <h1><center>Your Plan Summary</center></h1>
+  <ul>
+    <li> Event Name: {{ planData[0] }}</li>
+    <li> Event Description: {{ planData[1] }}</li>
+    <li> Event Time: {{ planData[2] }}</li>
+    <li> Event Venue: {{ planData[3] }}</li>
+    <li> Event Address: {{ planData[4] }}</li>
+    <li> Eatery Name: {{ planData[5] }}</li>
+    <li> Eatery Address: {{ planData[6] }}</li>
+  </ul>
   </body>
 </html>

@@ -6,27 +6,31 @@
   </head>
   <body>
     <h2><center>Events Found</center></h2>
-      <form action="/viewFoods" method="post" id="form2">
     <ul>
       {% for item in eventpar %}
-        <h4>Event {{number}}</h4>
-        <li>{{item['name']}}</li>
-        <li>{{item['description']}}</li>
-        <li>{{item['time']}}</li>
-        <li>{{item['place']}}</li>
-        <li>{{item['address']}}</li>
-        <li><img src={{item['logo']}} alt = "Logo"></li>
-        <li><a href={{item['url']}}>Visit Event!</a></li>
+      <form action="/viewFoods" method="POST">
+        <h4>Event found!</h4>
+        <li>{{ item['name'] }}</li>
+        <li>{{ item['description'] }}</li>
+        <li>{{ item['time'] }}</li>
+        <li>{{ item['place'] }}</li>
+        <li>{{ item['address'] }}</li>
+        <li><img src="{{ item['logo'] }}" alt = "Logo"></li>
+        <li><a href="{{ item['url'] }}">Click for further information!</a></li>
         <br><br>
-        <button type="submit" formmethod="post" form="form2" name="findFoodButton">Find Restaurants And Eateries Around Location
-            <input type="hidden" name="lat" value={{item['lat']}}>
-            <input type="hidden" name="long" value={{item['long']}}>
+        <button type = "submit" value = "action"> Find Nearby Eateries
+            <input type="hidden" name="lat" value="{{ item['lat'] }}">
+            <input type="hidden" name="long" value="{{ item['long'] }}">
+            <input type="hidden" name="eName" value="{{ item['name'] }}">
+            <input type="hidden" name="eDesc" value="{{ item['description'] }}">
+            <input type="hidden" name="eTime" value="{{ item['time'] }}">
+            <input type="hidden" name="eVenue" value="{{ item['place'] }}">
+            <input type="hidden" name="eAddress" value="{{ item['address'] }}">            
         </button>
-        
         <br><br>
-       {% endfor %}
-    </ul>
       </form>
+      {% endfor %}
+    </ul>
     </body>
 </html>
 

@@ -74,7 +74,10 @@ def dispEventResults(event):
     d['address']=data['venue']['address']['localized_address_display']
     d['lat']=data['venue']['latitude']
     d['long']=data['venue']['longitude']
-    d['logo']=data['logo']['url']
+    if data['logo'] != None:
+        d['logo']=data['logo']['url']
+    else:
+        d['logo']='http://bdamar.com/adminbdamar.com/edu/coaching/upload/3011758078676434.png'
     d['url']=data['url']
     return d
 

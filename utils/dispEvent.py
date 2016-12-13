@@ -63,7 +63,7 @@ def nextEvent(events,budget):
 #Returns: dictionary with all of the data for the event
 #What it does: grabs data from api
 def dispEventResults(event):
-    u = urllib2.urlopen(event+"&expand=venue,logo_id")
+    u = urllib2.urlopen(event+"&expand=venue,logo_id,ticket_classes")
     response = u.read()
     data = json.loads( response )
     d = {}
@@ -74,6 +74,13 @@ def dispEventResults(event):
     d['address']=data['venue']['address']['localized_address_display']
     d['lat']=data['venue']['latitude']
     d['long']=data['venue']['longitude']
+    isfree = data['ticket_classes'][0]['free']
+    if(isfree):#free event
+        d['cost']=0
+    elif 'cost' in data['ticket_classes'][0].keys():#paid event
+        d['cost']=data['ticket_classes'][0]['cost']['value']
+    else:#must be pay what you wish
+        d['cost']=0
     if data['logo'] != None:
         d['logo']=data['logo']['url']
     else:

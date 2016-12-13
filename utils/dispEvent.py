@@ -47,12 +47,15 @@ def nextEvent(events,budget):
     response = u.read()
     data = json.loads( response )
     isfree = data['ticket_classes'][0]['free']
-    if(isfree):
+    if(isfree):#free event
         return data['resource_uri']+"?token=COVN2QEFIDLBA54TVAVS&expand=ticket_classes"
-    elif(data['ticket_classes'][0]['cost']['value']/100<budget):
+    elif 'cost' in data['ticket_classes'][0].keys():#paid event
+        if data['ticket_classes'][0]['cost']['value']/100 < budget:
+            return data['resource_uri']+"?token=COVN2QEFIDLBA54TVAVS&expand=ticket_classes"
+        else:
+            return nextEvent(events,budget)
+    else:#must be pay what you wish
         return data['resource_uri']+"?token=COVN2QEFIDLBA54TVAVS&expand=ticket_classes"
-    else:
-        return nextEvent(events,budget)
 
 #dispEvent(event)
 #Params:

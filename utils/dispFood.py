@@ -58,7 +58,7 @@ def getPhoto(photo_reference):
     outstream = open('image.jpg', 'w') 
     outstream.write(response)
     outstream.close()
-    return 'image.jpg'
+    return '../image.jpg'
 
 #formatTime(time)
 #Params:
@@ -86,9 +86,11 @@ def dispFoodResults(food):
     d = {}
     d['name']=data['result']['name']
     d['address']=data['result']['formatted_address']
-    photo_reference =  data['result']['photos'][0]['photo_reference']
-    d['logo']=getPhoto(photo_reference)
-    print d['logo']
+    if 'photos' in data['result'].keys():
+        photo_reference =  data['result']['photos'][0]['photo_reference']
+        d['logo']=getPhoto(photo_reference)
+    else:
+        d['logo']=None
     #d['logo']=data['result']['icon']
     d['url']=data['result']['url']
     if 'opening_hours' in data['result'].keys():

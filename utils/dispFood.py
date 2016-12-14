@@ -55,7 +55,25 @@ def getPhoto(photo_reference):
     q+="&maxwidth=400"
     u = urllib2.urlopen(q)
     response = u.read()
-    return response
+    outstream = open('image.jpg', 'w') 
+    outstream.write(response)
+    outstream.close()
+    return './image.jpg'
+
+#formatTime(time)
+#Params:
+# time - array returned by json from places apu
+#Returns: nice string
+#What it does: makes the string nicer
+def formatTime(time){
+    retstr = ''
+    i = 0
+    while i < len(time):
+        retstr+=time[i]
+        retstr+="\n"
+        i+=1
+    return retstr
+}
 #dispFoodResults(event)
 #Params:
 # event - event url
@@ -68,15 +86,15 @@ def dispFoodResults(food):
     d = {}
     d['name']=data['result']['name']
     d['address']=data['result']['formatted_address']
-    #photo_reference =  data['result']['photos'][0]['photo_reference']
-    #d['logo']=getPhoto(photo_reference)
-    d['logo']=data['result']['icon']
+    photo_reference =  data['result']['photos'][0]['photo_reference']
+    d['logo']=getPhoto(photo_reference)
+    print d['logo']
+    #d['logo']=data['result']['icon']
     d['url']=data['result']['url']
     if 'opening_hours' in data['result'].keys():
-        d['time']=data['result']['opening_hours']['weekday_text']
-        print data['result']['opening_hours']['weekday_text']
+        d['time']=formatTime(data['result']['opening_hours']['weekday_text'])
     else:
-        d['time']=[]
+        d['time']='no time listed'
     d['price']=data['result']['price_level']
     return d
 

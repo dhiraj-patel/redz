@@ -10,11 +10,12 @@
       {% for item in eventpar %}
       <form action="/viewFoods" method="POST">
         <h4>Event found!</h4>
-        <li>{{ item['name'] }}</li>
-        <li>{{ item['description'] }}</li>
-        <li>{{ item['time'] }}</li>
-        <li>{{ item['place'] }}</li>
-        <li>{{ item['address'] }}</li>
+        <li>Name: {{ item['name'] }}</li>
+        <li>Description: {{ item['description'] }}</li>
+        <li>Time: {{ item['time'] }}</li>
+        <li>Venue: {{ item['place'] }}</li>
+        <li>Address: {{ item['address'] }}</li>
+        <li>Cost: ${{ item['cost'] }}</li>
         <li><img src="{{ item['logo'] }}" alt = "Logo"></li>
         <li><a href="{{ item['url'] }}">Click for further information!</a></li>
         <br><br>
@@ -25,7 +26,8 @@
             <input type="hidden" name="eDesc" value="{{ item['description'] }}">
             <input type="hidden" name="eTime" value="{{ item['time'] }}">
             <input type="hidden" name="eVenue" value="{{ item['place'] }}">
-            <input type="hidden" name="eAddress" value="{{ item['address'] }}">            
+            <input type="hidden" name="eAddress" value="{{ item['address'] }}">          
+            <input type="hidden" name="eCost" value="{{ item['cost'] }}">  
         </button>
         <br><br>
       </form>

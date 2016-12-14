@@ -11,18 +11,23 @@
     <form action="/summary" method="POST">
     <ul>
         <h4>Eatery found!</h4>
-        <li>{{ item['name'] }}</li>
-        <li>{{ item['address'] }}</li>
+        <li>Name: {{ item['name'] }}</li>
+        <li>Address: {{ item['address'] }}</li>
+        <li>Open Hours: {{ item['time'] }}</li>
+        <li>Price Level: {{ item['price'] }}</li>
         <li><img src= "{{ item['logo'] }}" alt = "Logo"></li>
         <li><a href= "{{ item['url'] }}">Click for further information!</a></li>
         <button type = "submit" value = "action"> Create Plan
             <input type = "hidden" name = "eName" value = "{{ eventData[0] }}">
             <input type = "hidden" name = "eDesc" value = "{{ eventData[1] }}">
             <input type = "hidden" name = "eTime" value = "{{ eventData[2] }}">
-            <input type = "hidden" name = "eVenue" value = "{{ eventData[3] }}">
-            <input type = "hidden" name = "eAddress" value = "{{ eventData[4] }}">
+            <input type = "hidden" name = "eCost" value = "{{ eventData[3] }}">
+            <input type = "hidden" name = "eVenue" value = "{{ eventData[4] }}">
+            <input type = "hidden" name = "eAddress" value = "{{ eventData[5] }}">
             <input type = "hidden" name = "fName" value = "{{ item['name'] }}">
             <input type = "hidden" name = "fAddress" value = "{{ item['address'] }}">
+            <input type = "hidden" name = "fTime" value = "{{ item['time'] }}">
+            <input type = "hidden" name = "fPrice" value = "{{ item['price'] }}">
         </button>
     </ul>
     </form>
@@ -35,6 +40,7 @@
         <li> {{ eventData[2] }} </li>
         <li> {{ eventData[3] }} </li>
         <li> {{ eventData[4] }} </li> 
+        <li> {{ eventData[5] }} </li>
     </ul>
     </body>
 </html>

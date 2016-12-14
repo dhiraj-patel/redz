@@ -86,7 +86,8 @@ def foodResults():
 	eCost = request.form['eCost']
 	eVenue = request.form['eVenue']
 	eAddress = request.form['eAddress']
-	eList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress])
+	eLink = request.form['eLink']
+	eList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink])
 	#print '\n'.join(eList)
 
 	i = 0
@@ -108,11 +109,13 @@ def dispSummary():
 	eCost = request.form['eCost']
 	eVenue = request.form['eVenue']
 	eAddress = request.form['eAddress']
+	eLink = request.form['eLink']
 	fName = request.form['fName']
 	fAddress = request.form['fAddress']
 	fTime = request.form['fTime']
 	fPrice = request.form['fPrice']
-	efList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, fName, fAddress, fTime, fPrice])
+	fLink = request.form['fLink']
+	efList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink, fName, fAddress, fTime, fPrice, fLink])
 	return render_template('summary.html', planData = efList)
 	
 

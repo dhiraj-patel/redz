@@ -19,8 +19,8 @@ def userExists(username, c):
 
 def register(user, password):
     result = []
-    bd = sqlite3.connect('data/data.db')
-    c = bd.cursor()
+    db = sqlite3.connect('data/data.db')
+    c = db.cursor()
     if (userExists(user, c)):
         result = ['User already exists.', False]
     elif not user.isalnum() or not password.isalnum():
@@ -28,15 +28,16 @@ def register(user, password):
     else:
         p = hashPass(password)
         c.execute("INSERT INTO users VALUES ('%s', '%s')"%(user, p))
-        bd.commit()
-        bd.close()
+        c.execute("CREATE TABLE '%s' (eName TEXT, eDesc TEXT, eTime TEXT, eCost TEXT, eVenue TEXT, eAddress TEXT, eLink TEXT, fName TEXT, fAddress TEXT, fTime TEXT, fPrice TEXT, fLink TEXT)"%(user))
+        db.commit()
+        db.close()
         result = ['Registration successful.', False]
     return result
 
 def login(user, password):
     result = []
-    bd = sqlite3.connect('data/data.db')
-    c = bd.cursor()
+    db = sqlite3.connect('data/data.db')
+    c = db.cursor()
     if (userExists(user, c) == False):
         result = ['User does not exist.', False]
     else:

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
+<head>
+<link rel="shortcut icon" href="../static/icon.ico" />
+<link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css" >
+</head>
     <title>Events Found</title>
-  </head>
+
   <body>
     <h2><center>Events Found</center></h2>
     <ul>
@@ -19,7 +21,7 @@
         <li><img src="{{ item['logo'] }}" alt = "Logo"></li>
         <li><a href="{{ item['url'] }}">Click for further information!</a></li>
         <br><br>
-        <button type = "submit" value = "action"> Find Nearby Eateries
+        <button class="btn btn-success btn-lg" type = "submit" value = "action"> Find Nearby Eateries
             <input type="hidden" name="lat" value="{{ item['lat'] }}">
             <input type="hidden" name="long" value="{{ item['long'] }}">
             <input type="hidden" name="eName" value="{{ item['name'] }}">

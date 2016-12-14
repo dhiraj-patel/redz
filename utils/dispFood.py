@@ -55,10 +55,10 @@ def getPhoto(photo_reference):
     q+="&maxwidth=400"
     u = urllib2.urlopen(q)
     response = u.read()
-    outstream = open('image.jpg', 'w') 
+    outstream = open('static/image.jpg', 'w') 
     outstream.write(response)
     outstream.close()
-    return '../image.jpg'
+    return '../static/image.jpg'
 
 #formatTime(time)
 #Params:
@@ -70,7 +70,7 @@ def formatTime(time):
     i = 0
     while i < len(time):
         retstr+=time[i]
-        retstr+=","
+        retstr+=", "
         i+=1
     return retstr
 

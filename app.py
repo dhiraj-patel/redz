@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-from utils import auth, dispEvent, dispFood
+from utils import auth, dispEvent, dispFood, databaseIO
 
 app = Flask(__name__)
 app.secret_key = 'nine'
@@ -87,7 +87,8 @@ def foodResults():
 	eVenue = request.form['eVenue']
 	eAddress = request.form['eAddress']
 	eLink = request.form['eLink']
-	eList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink])
+	eLogo = request.form['eLogo']
+	eList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink, eLogo])
 	#print '\n'.join(eList)
 
 	i = 0
@@ -110,13 +111,32 @@ def dispSummary():
 	eVenue = request.form['eVenue']
 	eAddress = request.form['eAddress']
 	eLink = request.form['eLink']
+	eLogo = request.form['eLogo']
 	fName = request.form['fName']
 	fAddress = request.form['fAddress']
 	fTime = request.form['fTime']
 	fPrice = request.form['fPrice']
 	fLink = request.form['fLink']
-	efList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink, fName, fAddress, fTime, fPrice, fLink])
+	fLogo = request.form['fLogo']
+	efList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink, fName, fAddress, fTime, fPrice, fLink, eLogo, fLogo])
 	return render_template('summary.html', planData = efList)
+
+@app.route('/addPlan', methods = ['POST'])
+def addPlan():
+	eName = request.form['eName']
+	eTime = request.form['eTime']
+	eCost = request.form['eCost']
+	eVenue = request.form['eVenue']
+	eAddress = request.form['eAddress']
+	eLink = request.form['eLink']
+	fName = request.form['fName']
+	fAddress = request.form['fAddress']
+	fTime = request.form['fTime']
+	fPrice = request.form['fPrice']
+	fLink = request.form['fLink']
+	user = session['user']
+	databaseIO.addEvent(user, eName, eTime, eCost, eVenue, eAddress, eLink, fName, fAddress, fTime, fPrice, fLink)
+	return redirect(url_for('home'))
 	
 
 if __name__ == "__main__":

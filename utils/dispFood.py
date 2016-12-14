@@ -65,7 +65,7 @@ def getPhoto(photo_reference):
 # time - array returned by json from places apu
 #Returns: nice string
 #What it does: makes the string nicer
-def formatTime(time){
+def formatTime(time):
     retstr = ''
     i = 0
     while i < len(time):
@@ -73,7 +73,7 @@ def formatTime(time){
         retstr+="\n"
         i+=1
     return retstr
-}
+
 #dispFoodResults(event)
 #Params:
 # event - event url

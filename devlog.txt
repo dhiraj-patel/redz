@@ -54,3 +54,6 @@ dhirajP 2016-12-08 19:00:
 
 ziyanL -- 2016-12-08 11:08
 Basic home page, nav bar, logout, table for displaying the plans.
+
+dhirajP & ziyanL -- 2016-12-13 11:06
+Fixed the description dropdown problem. Small fix to home page design. 

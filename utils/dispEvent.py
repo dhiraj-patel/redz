@@ -78,7 +78,7 @@ def dispEventResults(event):
     if(isfree):#free event
         d['cost']=0
     elif 'cost' in data['ticket_classes'][0].keys():#paid event
-        d['cost']=data['ticket_classes'][0]['cost']['value']
+        d['cost']=data['ticket_classes'][0]['cost']['value']/100
     else:#must be pay what you wish
         d['cost']=0
     if data['logo'] != None:

@@ -58,7 +58,7 @@ def getPhoto(photo_reference):
     outstream = open('image.jpg', 'w') 
     outstream.write(response)
     outstream.close()
-    return './image.jpg'
+    return 'image.jpg'
 
 #formatTime(time)
 #Params:
@@ -70,7 +70,7 @@ def formatTime(time):
     i = 0
     while i < len(time):
         retstr+=time[i]
-        retstr+="\n"
+        retstr+=","
         i+=1
     return retstr
 

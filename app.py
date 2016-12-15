@@ -16,7 +16,12 @@ def home():
 	if 'user' in session:
 		mHome = "Welcome back " + session['user'] + "!"
 		planList = databaseIO.getData(session['user'])
-		return render_template('home.html', messageHome = mHome, myPlans = planList)
+		print planList
+		if planList != []:
+			return render_template('home.html', messageHome = mHome, myPlans = planList, messagePlan = "")
+		else:
+			planStr = "You haven't created any plans yet. Click the 'Find Events' button to begin!"
+			return render_template('home.html', messageHome = mHome, myPlans = [], messagePlan = planStr)
 	else:
 		return redirect(url_for('login'))
 

@@ -8,30 +8,49 @@
 
 <h1><center> {{ messageHome }} </center></h1>
 <body>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-                <a class="navbar-brand" href="#">RedzPlan </a>
+	  <nav class="navbar navbar-default">
+		<div class="container-fluid">
+				<a class="navbar-brand" href="#">RedzPlan </a>
 	  <ul class="nav navbar-nav">
-	      <li class="active"><a href="/home">Home</a></li>
-              <li><a href="/findEvents">Find Events!</a></li>
+		  <li class="active"><a href="/home">Home</a></li>
+			  <li><a href="/findEvents">Find Events!</a></li>
 	  </ul>
 	  <ul class="nav navbar-nav navbar-right">
-	      <form action = "/logout" method = "POST">
+		  <form action = "/logout" method = "POST">
 		 <li><button class="btn btn-default btn-lg" type = "submit" name="action">Logout</button></li>
-              </form>
+			  </form>
+
+	<!--
 	  </ul>
-          </nav>
-                    <div class="row">
-                            <div class="col-md-3"> <h3>Event</h3></div> 
-                            <div class="col-md-3"> <h3>Location</h3></div>
-                            <div class="col-md-3"> <h3>Time</h3></div>
-                            <div class="col-md-3"> <h3>Price</h3></div>
-                    </div>
-                    for a in {{plan}};
-                       <div class="row">
-                            <div class="col-md-3"> <h3><a href={{url}}>a</a></h3></div> 
-                            <div class="col-md-3"> <h3>{{location}}</h3></div> 
-                            <div class="col-md-3"> <h3>{{time}}</h3></div>
-                            <div class="col-md-3"> <h3>{{price}}</h3></div>
-                        </div>
-    </nav></body></html>
+		  </nav>
+					<div class="row">
+							<div class="col-md-3"> <h3>Event</h3></div> 
+							<div class="col-md-3"> <h3>Location</h3></div>
+							<div class="col-md-3"> <h3>Time</h3></div>
+							<div class="col-md-3"> <h3>Price</h3></div>
+					</div>
+					for a in {{plan}};
+					   <div class="row">
+							<div class="col-md-3"> <h3><a href={{url}}>a</a></h3></div> 
+							<div class="col-md-3"> <h3>{{location}}</h3></div> 
+							<div class="col-md-3"> <h3>{{time}}</h3></div>
+							<div class="col-md-3"> <h3>{{price}}</h3></div>
+						</div>
+	</nav>-->
+	{% for plan in myPlans %}
+	<h3>A Plan You Saved!</h3>
+	<ul>
+		<li>Event Name: {{ plan[0] }}</li>
+		<li>Event Time: {{ plan[1] }}</li>
+		<li>Event Cost: ${{ plan[2] }}</li>
+		<li>Event Venue: {{ plan[3] }}</li>
+		<li>Event Address: {{ plan[4] }}</li>
+		<li>Eatery Name: {{ plan[5] }}</li>
+		<li>Eatery Address: {{ plan[6] }}</li>
+		<li>Eatery Open Hours: {{ plan[7] }}</li>
+		<li>Eatery Price Level: {{ plan[8] }} (out of 4)</li>
+	</ul>
+	<br><br>
+	{% endfor %}
+	</body>
+	</html>

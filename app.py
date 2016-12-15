@@ -15,7 +15,8 @@ def login():
 def home():
 	if 'user' in session:
 		mHome = "Welcome back " + session['user'] + "!"
-		return render_template('home.html', messageHome = mHome)
+		planList = databaseIO.getData(session['user'])
+		return render_template('home.html', messageHome = mHome, myPlans = planList)
 	else:
 		return redirect(url_for('login'))
 

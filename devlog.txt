@@ -63,3 +63,6 @@ dhirajP & ziyanL -- 2016-12-13 11:06
 - Tried to separate each event with a box. 
 - Fixed the description dropdown problem. Small fix to home page design. 
 
+dhirajP -- 2016-12-14 23:00
+-- added a bunch of nice css tricks
+-- made site look good

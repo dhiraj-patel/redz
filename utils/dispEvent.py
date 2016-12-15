@@ -92,4 +92,3 @@ def dispEventResults(event):
 if __name__ == "__main__":
     events = searchEvents(11215, 20, 2016, 12, 15, 12, 30)
     print dispEventResults(nextEvent(events, 100))
-                          

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color:#FFA07A">
 <head>
 <link rel="shortcut icon" href="../static/icon.ico" />
 <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css" >
 </head>
 <title>Restaurant's Found</title>   
-  <body>
+  <body style="background-color:#FFA07A">
     <h2><center>Restaurants and Eateries Near You!</center></h2>
     {% for item in foodpar %}
     <form action="/summary" method="POST">
     <ul>
+<div style="width:1000px;height:700px;background-color:#F08080;box-shadow: 10px 10px 5px #CD5C5C">
         <h4>Eatery found!</h4>
         <li>Name: {{ item['name'] }}</li>
         <li>Address: {{ item['address'] }}</li>
         <li>Open Hours: {{ item['time'] }}</li>
-        <li>Price Level: {{ item['price'] }} (out of 4)</li>
-        <li><img src= "{{ item['logo'] }}" alt = "Logo"></li>
-        <li><a href= "{{ item['url'] }}">Click for further information!</a></li>
+        <li>Price Level: {{ item['price'] }}</li><br>
+        <li><img src= "{{ item['logo'] }}" alt = "Logo"></li><br>
+    <li><u><a style="color:white" href= "{{ item['url'] }}">Click for further information!</a></u></li><br>
         <button class="btn btn-success btn-lg" type = "submit" value = "actionFood"> Create Plan
             <input type = "hidden" name = "eName" value = "{{ eventData[0] }}">
             <input type = "hidden" name = "eDesc" value = "{{ eventData[1] }}">
@@ -31,10 +32,13 @@
             <input type = "hidden" name = "fPrice" value = "{{ item['price'] }}">
             <input type = "hidden" name = "fLink" value = "{{ item['url'] }}">
         </button>
+        </div>
     </ul>
     </form>
     <br><br>
     {% endfor %}
+      
+      <!--
     <h3> info for selected event (test) </h3>
     <ul>
         <li> {{ eventData[0] }} </li> 
@@ -44,6 +48,7 @@
         <li> {{ eventData[4] }} </li> 
         <li> {{ eventData[5] }} </li>
         <li> {{ eventData[6] }} </li>
-    </ul>
+    </ul> -->
     </body>
-</html>
+</html> 
+      

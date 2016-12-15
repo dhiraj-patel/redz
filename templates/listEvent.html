@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color:#FFA07A">
 <head>
 <link rel="shortcut icon" href="../static/icon.ico" />
   <link rel="shortcut icon" href="../static/icon.ico" />
@@ -13,32 +13,25 @@
 
 <title>Events Found</title>
 
-  <body>
+  <body style="background-color:#FFA07A">
     <h2><center>Events Found</center></h2>
     <ul>
     {% for item in eventpar %}
+       
       <form action="/viewFoods" method="POST">
+          
+ <div style="width:1000px;height:750px;background-color:#F08080;box-shadow: 10px 10px 5px #CD5C5C">
         <h4>Event found!</h4>
-        <li>Name: {{ item['name'] }}</li>
-          
-              
-        <li><div class="container">
-  
-  <button style="height:50px ; width:150px ; float:left" type="button" class="btn btn-info" data-toggle="collapse" data-target=#{{item['description']}}>Click For Description</button>
-  <div id={{item['description']}} class="collapse">
-      <br><br><br>
-      <p style="text-align:left">Description: {{ item['description'] }} </p>
-  </div>
-</div>       
-        </li>
-          
-          
+        <li>Name: {{ item['name'] }}</li>    
         <li>Time: {{ item['time'] }}</li>
         <li>Venue: {{ item['place'] }}</li>
         <li>Address: {{ item['address'] }}</li>
         <li>Cost: ${{ item['cost'] }}</li>
+        <li>Description: {{item['description']}}</li>
+    
         <li><img src="{{ item['logo'] }}" alt = "Logo"></li>
-        <li><a href="{{ item['url'] }}">Click for further information!</a></li>
+     <br>
+     <li><u><a style="color:white" href="{{ item['url'] }}">Click for further information!</a></u></li>
         <br><br>
         <button class="btn btn-success btn-lg" type = "submit" value = "actionEvent"> Find Nearby Eateries
             <input type = "hidden" name = "lat" value = "{{ item['lat'] }}">
@@ -51,7 +44,9 @@
             <input type = "hidden" name = "eCost" value = "{{ item['cost'] }}"> 
             <input type = "hidden" name = "eLink" value = "{{ item['url'] }}"> 
         </button>
-        <br><br>
+    
+       </div>
+          <br><br>
       </form>
       {% endfor %}
     </ul>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="background-color:#FFA07A">
 <head>
 <link rel="shortcut icon" href="../static/icon.ico" />
 <link rel="stylesheet" href="https://bootswatch.com/united/bootstrap.min.css" >
@@ -8,7 +8,7 @@
     
     
 <title>Find an Event</title>
-<body><div class="jumbotron">
+<body style = "background-color:#FFA07A"><div class="jumbotron" style="background-color:#FFA07A">
     <center><h2>Find Your Next Experience</h2></center>
     <center><h5 style="color:red">{{ errorMessage }}</h5></center>
     <br><br>
@@ -22,7 +22,7 @@
       <center>Date: <input type = "date" name = "Date" required></center>
       <br>
         
-      <center>Budget: <input type = "range" style="width:500px" name = "Budget" min = "0" max = "500" value = "0" step = "10" onchange="showValue(this.value)" /></center>
+      <center>Budget: <input type = "range" style="width:500px;color=#FFA07A" name = "Budget" min = "0" max = "500" value = "0" step = "10" onchange="showValue(this.value)" /></center>
       <span id="range">0</span>
       <script type="text/javascript">
 	function showValue(newValue)

@@ -16,7 +16,7 @@
         <li>Address: {{ item['address'] }}</li>
         <li>Open Hours: {{ item['time'] }}</li>
         <li>Price Level: {{ item['price'] }}</li><br>
-        <li><img src= "{{ item['logo'] }}" alt = "Logo"></li><br>
+        <li><img src= "../static/image{{item['index']}}.jpg" alt = "Logo"></li><br>
     <li><u><a style="color:white" href= "{{ item['url'] }}">Click for further information!</a></u></li><br>
         <button class="btn btn-success btn-lg" type = "submit" value = "actionFood"> Create Plan
             <input type = "hidden" name = "eName" value = "{{ eventData[0] }}">

@@ -45,7 +45,7 @@ def nextFood(foods, i):
 # photo_reference - photo_refenence to use in api request
 #Returns: image
 #What it does: Uses photo_reference to get image off of google places
-def getPhoto(photo_reference):
+def getPhoto(photo_reference, i):
     instream = open('keys.csv', 'r') 
     content = instream.readlines() 
     instream.close()
@@ -55,7 +55,7 @@ def getPhoto(photo_reference):
     q+="&maxwidth=400"
     u = urllib2.urlopen(q)
     response = u.read()
-    outstream = open('static/image.jpg', 'w') 
+    outstream = open('static/image'+str(i)+'.jpg', 'w') 
     outstream.write(response)
     outstream.close()
     return '../static/image.jpg'
@@ -79,7 +79,7 @@ def formatTime(time):
 # event - event url
 #Returns: dictionary with all of the data for the food
 #What it does: grabs data from api
-def dispFoodResults(food):
+def dispFoodResults(food, i):
     u = urllib2.urlopen(food)
     response = u.read()
     data = json.loads( response )
@@ -88,7 +88,7 @@ def dispFoodResults(food):
     d['address']=data['result']['formatted_address']
     if 'photos' in data['result'].keys():
         photo_reference =  data['result']['photos'][0]['photo_reference']
-        d['logo']=getPhoto(photo_reference)
+        d['logo']=getPhoto(photo_reference,i)
     else:
         d['logo']=None
     #d['logo']=data['result']['icon']
@@ -98,6 +98,7 @@ def dispFoodResults(food):
     else:
         d['time']='no time listed'
     d['price']=data['result']['price_level']
+    d['index']=i
     return d
 
 if __name__ == "__main__":

@@ -100,7 +100,7 @@ def foodResults():
 	allFoods = []
 	foodFound = dispFood.searchFood(formlat,formlong,formRadius,formbudget)
 	while i<len(foodFound["results"]):
-		f = dispFood.dispFoodResults(dispFood.nextFood(foodFound,i))
+		f = dispFood.dispFoodResults(dispFood.nextFood(foodFound,i),i)
 		allFoods.append(f)
 		i+=1
 	return render_template('listFood.html', foodpar = allFoods, eventData = eList)

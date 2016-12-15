@@ -52,6 +52,10 @@ dhirajP 2016-12-08 19:00:
 ziyanL -- 2016-12-08 11:08
 Basic home page, nav bar, logout, table for displaying the plans.
 
+elyS -- 2016-12-09 21:00
+Fixed Restruant bugs
+Changed keys to be in a csv file
+
 dhirajP -- 2016-12-11 21:00
 - Starting using bootstrap to style each html page, and making each page follow a certain style
 - Started working on the drop down description.
@@ -62,6 +66,12 @@ dhirajP & ziyanL -- 2016-12-13 11:06
 
 reoK -- 2016-12-13 18:22
 modified summary.html so that it displays information of selected event and eatery
+
+elyS -- 2016-12-13 22:10
+Fixed site crashing when events have no image
+Fixed site crashing when no cost is given
+Fixed API bugs and unsuccessully tried to implement images for restruants
+Added more fields for summary.html
 
 reoK -- 2016-12-14 22:22
 add a button to summary.html that sends a form to new route '/addPlan'
@@ -76,3 +86,9 @@ checks to see if table is empty; if so, shows message instead
 dhirajP -- 2016-12-14 23:00
 -- added a bunch of nice css tricks
 -- made site look good
+
+elyS -- 2016-12-15 00:47
+- Wrote README.md
+- Wrote changes.txt
+- emailed Mr. DW keys.csv
+- Fixed food images using image files in static

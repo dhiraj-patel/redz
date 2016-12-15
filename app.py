@@ -126,13 +126,13 @@ def dispSummary():
 
 @app.route('/addPlan', methods = ['POST'])
 def addPlan():
-	eName = request.form['eName']
+	eName = (request.form['eName']).replace("'","")
 	eTime = request.form['eTime']
 	eCost = request.form['eCost']
-	eVenue = request.form['eVenue']
+	eVenue = (request.form['eVenue']).replace("'","")
 	eAddress = request.form['eAddress']
-	fName = request.form['fName']
-	fAddress = request.form['fAddress']
+	fName = (request.form['fName']).replace("'","")
+	fAddress = (request.form['fAddress']).replace("'","")
 	fTime = request.form['fTime']
 	fPrice = request.form['fPrice']
 	username = session['user']

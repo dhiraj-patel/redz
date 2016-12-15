@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request, redirect, session
-from utils import auth, dispEvent, dispFood
+from utils import auth, dispEvent, dispFood, databaseIO
 
 app = Flask(__name__)
 app.secret_key = 'nine'
@@ -117,6 +117,21 @@ def dispSummary():
 	fLink = request.form['fLink']
 	efList.extend([eName, eDesc, eTime, eCost, eVenue, eAddress, eLink, fName, fAddress, fTime, fPrice, fLink])
 	return render_template('summary.html', planData = efList)
+
+@app.route('/addPlan', methods = ['POST'])
+def addPlan():
+	eName = request.form['eName']
+	eTime = request.form['eTime']
+	eCost = request.form['eCost']
+	eVenue = request.form['eVenue']
+	eAddress = request.form['eAddress']
+	fName = request.form['fName']
+	fAddress = request.form['fAddress']
+	fTime = request.form['fTime']
+	fPrice = request.form['fPrice']
+	username = session['user']
+	databaseIO.addData(username, eName, eTime, eCost, eVenue, eAddress, fName, fAddress, fTime, fPrice)
+	return redirect(url_for('home'))
 	
 
 if __name__ == "__main__":

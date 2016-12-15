@@ -9,37 +9,51 @@
 
   <!-- body background="https://pbs.twimg.com/profile_images/2662011849/afea7f1189ef655f85dadde4b2024e82.jpeg" -->
   <!-- div class="container-fluid">
-        <div ID = "top">
-             <h1>Your Plan Summary</h1>
-        </div>
-      <div class="row">
-         <div class="col-md-4"> <h3> "Event Name: " + {{ planData[0] }}</h3></div> 
-         <div class="col-md-4"> <h3> "Event Description: " + {{ planData[1] }}</h3></div>
-         <div class="col-md-4"> <h3> "Event Time: " + {{ planData[2] }}</h3></div>
-      </div>
-           <a class="btn btn-primary btn-lg" href={{url}} role ="button">More Info</a>
-      <div class="jumbotron" style="background-color: #FF336B">
-           <div ID = "sum">
-               <h3>"hoohah"</h3>
-           </div>
-      </div>
+		<div ID = "top">
+			 <h1>Your Plan Summary</h1>
+		</div>
+	  <div class="row">
+		 <div class="col-md-4"> <h3> "Event Name: " + {{ planData[0] }}</h3></div> 
+		 <div class="col-md-4"> <h3> "Event Description: " + {{ planData[1] }}</h3></div>
+		 <div class="col-md-4"> <h3> "Event Time: " + {{ planData[2] }}</h3></div>
+	  </div>
+		   <a class="btn btn-primary btn-lg" href={{url}} role ="button">More Info</a>
+	  <div class="jumbotron" style="background-color: #FF336B">
+		   <div ID = "sum">
+			   <h3>"hoohah"</h3>
+		   </div>
+	  </div>
   </div -->
   <!-- body background="https://pbs.twimg.com/profile_images/2662011849/afea7f1189ef655f85dadde4b2024e82.jpeg" -->
-  <body>
-  <h1><center>Your Plan Summary</center></h1>
-  <ul>
-    <li> Event Name: {{ planData[0] }}</li>
-    <li> Event Description: {{ planData[1] }}</li>
-    <li> Event Time: {{ planData[2] }}</li>
-    <li> Event Cost: ${{ planData[3] }}</li>
-    <li> Event Venue: {{ planData[4] }}</li>
-    <li> Event Address: {{ planData[5] }}</li>
-    <li> Event Link: {{ planData[6] }} </li>
-    <li> Eatery Name: {{ planData[7] }}</li>
-    <li> Eatery Address: {{ planData[8] }}</li>
-    <li> Eatery Open Hours: {{ planData[9] }}</li>
-    <li> Eatery Price Level: {{ planData[10] }}</li>
-    <li> Eatery Link: {{ planData[11] }}</li>
-  </ul>
-  </body>
+    <body>
+    <h1><center>Your Plan Summary</center></h1>
+	<ul>
+		<li> Event Name: {{ planData[0] }}</li>
+		<li> Event Description: {{ planData[1] }}</li>
+		<li> Event Time: {{ planData[2] }}</li>
+		<li> Event Cost: ${{ planData[3] }}</li>
+		<li> Event Venue: {{ planData[4] }}</li>
+		<li> Event Address: {{ planData[5] }}</li>
+		<li> Event Link: {{ planData[6] }} </li>
+		<li> Eatery Name: {{ planData[7] }}</li>
+		<li> Eatery Address: {{ planData[8] }}</li>
+		<li> Eatery Open Hours: {{ planData[9] }}</li>
+		<li> Eatery Price Level: {{ planData[10] }}</li>
+		<li> Eatery Link: {{ planData[11] }}</li>
+     </ul>
+
+    <form action = "/addPlan" method = "POST">
+    	<center><button class="btn btn-success btn-lg" type = "submit" value = "action">Create Plan 
+    		<input type = "hidden" name = "eName" value = "{{ planData[0] }}">
+    		<input type = "hidden" name = "eTime" value = "{{ planData[2] }}">
+    		<input type = "hidden" name = "eCost" value = "{{ planData[3] }}">
+    		<input type = "hidden" name = "eVenue" value = "{{ planData[4] }}">
+    		<input type = "hidden" name = "eAddress" value = "{{ planData[5] }}">
+    		<input type = "hidden" name = "fName" value = "{{ planData[7] }}">
+    		<input type = "hidden" name = "fAddress" value = "{{ planData[8] }}">
+    		<input type = "hidden" name = "fTime" value = "{{ planData[9] }}">
+    		<input type = "hidden" name = "fPrice" value = "{{ planData[10] }}">
+    	</button></center>
+    </form>
+    </body>
 </html>

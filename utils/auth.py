@@ -28,7 +28,7 @@ def register(user, password):
     else:
         p = hashPass(password)
         c.execute("INSERT INTO users VALUES ('%s', '%s')"%(user, p))
-        c.execute("CREATE TABLE '%s' (eName TEXT, eDesc TEXT, eTime TEXT, eCost TEXT, eVenue TEXT, eAddress TEXT, eLink TEXT, fName TEXT, fAddress TEXT, fTime TEXT, fPrice TEXT, fLink TEXT)"%(user))
+        c.execute("CREATE TABLE '%s' (eName TEXT, eTime TEXT, eCost TEXT, eVenue TEXT, eAddress TEXT, fName TEXT, fAddress TEXT, fTime TEXT, fPrice TEXT)"%(user))
         db.commit()
         db.close()
         result = ['Registration successful.', False]

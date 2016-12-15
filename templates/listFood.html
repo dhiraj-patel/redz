@@ -18,7 +18,6 @@
         <li><img src= "{{ item['logo'] }}" alt = "Logo"></li>
         <li><a href= "{{ item['url'] }}">Click for further information!</a></li>
         <button class="btn btn-success btn-lg" type = "submit" value = "actionFood"> Create Plan
-            <input type = "hidden" name = "fButton" value = "action">
             <input type = "hidden" name = "eName" value = "{{ eventData[0] }}">
             <input type = "hidden" name = "eDesc" value = "{{ eventData[1] }}">
             <input type = "hidden" name = "eTime" value = "{{ eventData[2] }}">

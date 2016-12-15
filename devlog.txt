@@ -14,9 +14,6 @@ reoK -- 2016-12-05 22:10
 Added the basic files needed for a flask site with a login/registering portal
 Created the 'users' table within data.db for later use
 
-reok -- 2016-12-06 00:34
-Added placesAPI.py
-
 dhirajP -- 2016-12-06 21:30:
 created a functional newEvent.html form that takes in user input, and finds events near the inputted zip.
 started the form for listEvent.html which display the events found. 
@@ -61,7 +58,20 @@ dhirajP -- 2016-12-11 21:00
 
 dhirajP & ziyanL -- 2016-12-13 11:06
 - Tried to separate each event with a box. 
-- Fixed the description dropdown problem. Small fix to home page design. 
+- Fixed the description dropdown problem. Small fix to home page design.
+
+reoK -- 2016-12-13 18:22
+modified summary.html so that it displays information of selected event and eatery
+
+reoK -- 2016-12-14 22:22
+add a button to summary.html that sends a form to new route '/addPlan'
+created databaseIO.py that writes to and reads from tables in data.db
+'/addPlan' route receives hidden form info (of event + eatery), saves it to
+users table, and redirects to home
+
+reoK -- 2016-12-14 23:10
+used databaseIO in the home route to display all the plan from logged-in user's database table
+checks to see if table is empty; if so, shows message instead
 
 dhirajP -- 2016-12-14 23:00
 -- added a bunch of nice css tricks

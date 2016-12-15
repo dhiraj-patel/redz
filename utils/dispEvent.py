@@ -68,7 +68,7 @@ def dispEventResults(event):
     data = json.loads( response )
     d = {}
     d['name']=data['name']['text']
-    d['description']=data['description']['text']
+    d['description']=data['description']['text'][0:2500]+"..."
     d['time']=data['start']['local']
     d['place']=data['venue']['name']
     d['address']=data['venue']['address']['localized_address_display']
